@@ -16,14 +16,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    TouchableOpacity: 'try {
-      
-    } catch (e) {
 
-    } finally {
-
-    }'
-    alignItems: 'center',
+    alignItems: 'left',
     justifyContent: 'center',
   },
 });
