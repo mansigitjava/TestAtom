@@ -6,7 +6,7 @@ import { StyleSheet, Text, View, Platform } from 'react-native';
 export default function App() {
   return (
     <View style={styles.container}>
-      {Platform.OS === 'ios' && <StatusBar backgroundColor="white" barStyle="light-content" />}
+      {Platform.OS === 'ios' && <StatusBar backgroundColor="black" barStyle="light-content" />}
       <AppNavigator />
     </View>
   );
@@ -15,7 +15,14 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#ggg',
+    backgroundColor: '#fff',
+    TouchableOpacity: 'try {
+      
+    } catch (e) {
+
+    } finally {
+
+    }'
     alignItems: 'center',
     justifyContent: 'center',
   },
