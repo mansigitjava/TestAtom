@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { StyleSheet, View, FlatList, Alert, TouchableWithoutFeedback, Keyboard } from 'react-native';
+import { StyleSheet, View, FlatList, Alert, TouchableWithoutFeedback, Keyboard, ScrollView } from 'react-native';
 import Header from '../Componants/header' ;
 import TodoItem from '../Componants/todoItem' ;
 import AddTodo from '../Componants/addTodo' ;
@@ -13,21 +13,32 @@ export default function App() {
     { text: 'play on the switch', key: '3' },
   ]);
 
-  const pressHandler = (key) => {
-    setTodos(prevTodos => {
-      return prevTodos.filter(todo => todo.key != key);
-    });
+  const pressHandler = (item) => {
+
+        setText(item);
+
+
+
   };
 
-  const submitHandler = (text) => {
+  const submitHandler = (text, type) => {
     if(text.length > 3){
       setText('');
-      setTodos(prevTodos => {
-        return [
-          { text, key: Math.random().toString() },
-          ...prevTodos
-        ];
-      });
+      if(type == 'new'){
+        setTodos(prevTodos => {
+          return [
+            { text, key: Math.random().toString() },
+            ...prevTodos
+          ];
+        });
+      }else{
+        setTodos(prevTodos => {
+          console.log(Todos);
+          return [
+            ...prevTodos
+          ];
+        });
+      }
     } else {
       Alert.alert('OOPS', 'Todo must be over 3 characters long', [
         {text: 'Understood', onPress: () => console.log('alert closed') }
@@ -39,8 +50,10 @@ export default function App() {
     <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
       <View style={styles.container}>
         <Header />
+        <ScrollView>
         <View style={styles.content}>
           <AddTodo submitHandler={submitHandler} />
+
           <View style={styles.list}>
             <FlatList
               data={todos}
@@ -49,7 +62,9 @@ export default function App() {
               )}
             />
           </View>
+
         </View>
+          </ScrollView>
       </View>
     </TouchableWithoutFeedback>
   );

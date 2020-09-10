@@ -5,13 +5,7 @@ import { StyleSheet, Text, View, Platform } from 'react-native';
 import 'react-native-gesture-handler';
 import { NavigationContainer } from '@react-navigation/native';
 
-const AppNavi = () => {
-  return (
-    <NavigationContainer>
-      {/* Rest of your app code */}
-    </NavigationContainer>
-  );
-};
+
 
 export default function App() {
   return (
